@@ -2,7 +2,6 @@ package com.gapperdan.hellomongo;
 
 import com.mongodb.*;
 
-
 public class Main {
     public static void main(String[] args) {
 
@@ -11,6 +10,33 @@ public class Main {
             DB db = mongoClient.getDB("test");
 
             DBCollection collection = db.getCollection("person");
+
+            //empty the collection first if not empty
+            if (collection.getCount() > 0) {
+                System.out.println("Deleting " +collection.getCount() + " documents from the collection");
+                collection.remove(new BasicDBObject());
+            }
+
+            //insert a document
+            BasicDBObject basicDBObject;
+
+            basicDBObject = new BasicDBObject();
+
+            basicDBObject.append("name","joe").
+                    append("gender", "male").
+                    append("age", 39);
+
+            collection.insert(basicDBObject);
+            System.out.println("Document inserted");
+
+            basicDBObject = new BasicDBObject();
+
+            basicDBObject.append("name","jane").
+                    append("gender", "female").
+                    append("age", 29);
+
+            collection.insert(basicDBObject);
+            System.out.println("Document inserted");
 
             //find one
             System.out.println("displaying one record");
@@ -28,9 +54,6 @@ public class Main {
             } finally {
                 dbCursor.close();
             }
-
-
-
 
         } catch (Exception e) {
             e.printStackTrace();

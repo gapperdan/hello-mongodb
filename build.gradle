@@ -1,7 +1,10 @@
 apply plugin: 'java'
+apply plugin: 'application'
 
-sourceCompatibility = 1.5
+sourceCompatibility = 1.6
 version = '1.0'
+
+mainClassName = "com.gapperdan.hellomongo.Main"
 
 repositories {
     mavenCentral()
