@@ -2,7 +2,8 @@
 
 ## To run
 * start your local mongod
-* create a database named 'test'
-* create a collection named 'person'
-* insert a record, e.g. name=joe,gender=male,age=40
-* > ./gradlew run ==> this will print the contents of the collection 'person' in the database 'test'
+* > ./gradlew run ==>
+   ** this will create a database "test" and collection "person"
+   ** empty the collection "person" if not empty
+   ** insert sample documents
+   ** print the contents
