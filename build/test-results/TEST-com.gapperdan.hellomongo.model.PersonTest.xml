@@ -1,8 +1,0 @@
-<?xml version="1.1" encoding="UTF-8"?>
-<testsuite name="com.gapperdan.hellomongo.model.PersonTest" tests="2" failures="0" errors="0" timestamp="2014-03-13T21:08:31" hostname="l-SFO0DJF1G3-M" time="0.0020">
-  <properties/>
-  <testcase name="shouldCreateAPerson" classname="com.gapperdan.hellomongo.model.PersonTest" time="0.0010"/>
-  <testcase name="shouldCreateAPersonWithTheCorrectAttributes" classname="com.gapperdan.hellomongo.model.PersonTest" time="0.0"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
