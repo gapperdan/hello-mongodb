@@ -2,6 +2,7 @@ package com.gapperdan.hellomongo.service;
 
 import com.gapperdan.hellomongo.model.Gender;
 import com.gapperdan.hellomongo.model.Person;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -39,16 +40,22 @@ public class PersonServiceTest {
         mockService = mock(PersonService.class);
 
         //when the mock personService is called, return the mock list
-        when(mockService.getAll()).thenReturn(someList);
+        try {
+            when(mockService.getAll()).thenReturn(someList);
 
-        //assert that there are persons in the list
-        assertEquals(2, mockService.getAll().size());
+            //assert that there are persons in the list
+            assertEquals(2, mockService.getAll().size());
 
-        //assert that the 1st person is male
-        assertTrue(Gender.MALE.equals(mockService.getAll().get(0).getGender()));
+            //assert that the 1st person is male
+            assertTrue(Gender.MALE.equals(mockService.getAll().get(0).getGender()));
 
-        //assert that the 2nd person is female
-        assertTrue(Gender.FEMALE.equals(mockService.getAll().get(1).getGender()));
+            //assert that the 2nd person is female
+            assertTrue(Gender.FEMALE.equals(mockService.getAll().get(1).getGender()));
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
 
     }
 
