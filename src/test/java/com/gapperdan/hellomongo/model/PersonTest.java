@@ -2,32 +2,35 @@ package com.gapperdan.hellomongo.model;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
 
 public class PersonTest {
 
-    private Person person;
+    private Person someone;
 
     @Test
-    public void shouldCreateAPerson() {
-        person = new Person();
-        assertTrue(person instanceof Person);
+    public void shouldCreateAMalePerson() {
+        someone = Person.create(Gender.MALE);
+        assertEquals(Gender.MALE, someone.getGender());
+    }
+
+    @Test
+    public void shouldCreateAFemalePerson() {
+        someone = Person.create(Gender.FEMALE);
+        assertEquals(Gender.FEMALE, someone.getGender());
     }
 
     @Test
     public void shouldCreateAPersonWithTheCorrectAttributes() {
+        someone = Person.create(Gender.FEMALE);
+        someone.setFirstName("First");
+        someone.setLastName("Last");
+        someone.setAge(99);
 
-        person = new Person();
-        person.setFirstName("First");
-        person.setLastName("Last");
-        person.setAge(99);
-        person.setGender(Gender.MALE);
-
-        assertEquals(person.getFirstName(), "First");
-        assertEquals(person.getLastName(), "Last");
-        assertEquals(person.getAge(), 99);
-        assertEquals(person.getGender().toString(),"MALE");
+        assertEquals(someone.getFirstName(), "First");
+        assertEquals(someone.getLastName(), "Last");
+        assertEquals(someone.getAge(), 99);
+        assertEquals(someone.getGender(), Gender.FEMALE);
 
     }
 }
