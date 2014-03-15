@@ -43,7 +43,7 @@ public class Main {
 
             System.out.println("added persons:");
             System.out.println(personService.getAll());
-            
+
         } catch (Exception e) {
             e.printStackTrace();
         }
