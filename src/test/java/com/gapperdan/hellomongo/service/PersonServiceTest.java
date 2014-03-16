@@ -56,4 +56,25 @@ public class PersonServiceTest {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void shouldReturnThePersonSearchedByName() {
+
+        someone = new Person();
+        someone.setFirstName("First");
+        someone.setLastName("Last");
+        someone.setGender(Gender.FEMALE);
+        someone.setAge(99);
+
+        mockService = mock(PersonService.class);
+        try {
+            when(mockService.searchByName("First", "Last")).thenReturn(someone);
+            assertEquals("First", someone.getFirstName());
+            assertEquals("Last", someone.getLastName());
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
 }

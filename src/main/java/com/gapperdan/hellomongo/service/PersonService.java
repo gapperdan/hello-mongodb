@@ -19,8 +19,12 @@ public class PersonService {
         personDao.add(person);
     }
 
-    public void clear() throws Exception {
-        personDao.clear();
+    public void deleteAll() throws Exception {
+        personDao.deleteAll();
+    }
+
+    public Person searchByName(String firstname, String lastname) throws Exception {
+        return personDao.searchByName(firstname, lastname);
     }
 
 }

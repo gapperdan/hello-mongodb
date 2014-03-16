@@ -17,7 +17,7 @@ public class Main {
             PersonService personService = new PersonService();
             Person person;
 
-            personService.clear();
+            personService.deleteAll();
 
             person = new Person();
             person.setFirstName("Bruce");
@@ -43,6 +43,10 @@ public class Main {
 
             System.out.println("added persons:");
             System.out.println(personService.getAll());
+
+            System.out.println("searching for Bruce Wayne");
+            person = personService.searchByName("Bruce", "Wayne");
+            System.out.println("Found: "+person.toString());
 
         } catch (Exception e) {
             e.printStackTrace();

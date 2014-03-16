@@ -2,6 +2,7 @@ package com.gapperdan.hellomongo.dao;
 
 import com.gapperdan.hellomongo.model.Gender;
 import com.gapperdan.hellomongo.model.Person;
+import com.gapperdan.hellomongo.util.Util;
 import com.mongodb.*;
 
 import java.net.UnknownHostException;
@@ -14,6 +15,11 @@ public class MongoPersonDaoImpl implements PersonDao {
     static final int MONGO_PORT = 27017;
     static final String MONGO_DB = "test";
     static final String MONGO_COLLECTION_PERSON = "person";
+
+    static final String FLD_FIRSTNAME = "firstname";
+    static final String FLD_LASTNAME = "lastname";
+    static final String FLD_AGE = "age";
+    static final String FLD_GENDER = "gender";
 
     MongoClient mongoClient;
     DBCursor dbCursor;
@@ -54,14 +60,15 @@ public class MongoPersonDaoImpl implements PersonDao {
         return persons;
     }
 
+    @Override
     public void add(Person person) throws Exception {
         basicDBObject = new BasicDBObject();
 
         try {
-            basicDBObject.append("firstname",person.getFirstName()).
-                    append("lastname", person.getLastName()).
-                    append("gender", person.getGender().toString()).
-                    append("age", person.getAge());
+            basicDBObject.append(FLD_FIRSTNAME,person.getFirstName().toUpperCase()).
+                    append(FLD_LASTNAME, person.getLastName().toUpperCase()).
+                    append(FLD_GENDER, person.getGender().toString()).
+                    append(FLD_AGE, person.getAge());
 
             dbCollection.insert(basicDBObject);
         } catch (Exception e) {
@@ -70,7 +77,8 @@ public class MongoPersonDaoImpl implements PersonDao {
         }
     }
 
-    public void clear() throws Exception {
+    @Override
+    public void deleteAll() throws Exception {
         dbCollection = db.getCollection(MONGO_COLLECTION_PERSON);
 
         try {
@@ -84,14 +92,34 @@ public class MongoPersonDaoImpl implements PersonDao {
         }
     }
 
+    @Override
+    public Person searchByName(String firstname, String lastname) throws Exception {
+
+        basicDBObject = new BasicDBObject();
+
+        try {
+            basicDBObject.append(FLD_FIRSTNAME,firstname.toUpperCase()).
+                    append(FLD_LASTNAME, lastname.toUpperCase());
+
+            DBObject dbObject = dbCollection.findOne(basicDBObject);
+            return convertDbObjectToPerson(dbObject);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+
+    }
+
     private Person convertDbObjectToPerson(DBObject dbObject) {
         Person person = new Person();
 
-        person.setFirstName(dbObject.get("firstname").toString());
-        person.setLastName(dbObject.get("lastname").toString());
-        person.setGender(Gender.valueOf(dbObject.get("gender").toString()));
-        person.setAge(Integer.valueOf(dbObject.get("age").toString()));
+        person.setFirstName(Util.upperFirstCharOnly(dbObject.get(FLD_FIRSTNAME).toString()));
+        person.setLastName(Util.upperFirstCharOnly(dbObject.get(FLD_LASTNAME).toString()));
+        person.setGender(Gender.valueOf(dbObject.get(FLD_GENDER).toString()));
+        person.setAge(Integer.valueOf(dbObject.get(FLD_AGE).toString()));
 
         return person;
     }
+
 }
