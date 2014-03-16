@@ -1,7 +1,6 @@
 package com.gapperdan.hellomongo.dao;
 
 import com.gapperdan.hellomongo.model.Person;
-import com.mongodb.BasicDBObject;
 
 import java.util.List;
 

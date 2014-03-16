@@ -2,7 +2,6 @@ package com.gapperdan.hellomongo.service;
 
 import com.gapperdan.hellomongo.model.Gender;
 import com.gapperdan.hellomongo.model.Person;
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -30,10 +29,10 @@ public class PersonServiceTest {
 
         someList = new LinkedList<Person>();
 
-        someone = Person.create(Gender.MALE);
+        someone = Person.create("First", "Last", Gender.MALE, 99);
         someList.add(someone);
 
-        someone = Person.create(Gender.FEMALE);
+        someone = Person.create("First", "Last", Gender.FEMALE, 88);
         someList.add(someone);
 
         //mock the PersonService

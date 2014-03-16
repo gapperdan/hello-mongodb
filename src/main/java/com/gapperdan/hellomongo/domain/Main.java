@@ -3,14 +3,9 @@ package com.gapperdan.hellomongo.domain;
 import com.gapperdan.hellomongo.model.Gender;
 import com.gapperdan.hellomongo.model.Person;
 import com.gapperdan.hellomongo.service.PersonService;
-import com.mongodb.MongoClient;
-import com.mongodb.BasicDBObject;
-import com.mongodb.DBCollection;
-import com.mongodb.DB;
-import com.mongodb.DBObject;
-import com.mongodb.DBCursor;
 
 public class Main {
+
     public static void main(String[] args) {
 
         try {
@@ -19,26 +14,11 @@ public class Main {
 
             personService.deleteAll();
 
-            person = new Person();
-            person.setFirstName("Bruce");
-            person.setLastName("Wayne");
-            person.setGender(Gender.MALE);
-            person.setAge(30);
+            person = Person.create("Bruce", "Wayne", Gender.MALE, 30);
             personService.add(person);
-
-            person = new Person();
-            person.setFirstName("John");
-            person.setLastName("Doe");
-            person.setGender(Gender.MALE);
-            person.setAge(29);
+            person = Person.create("John", "Doe", Gender.MALE, 49);
             personService.add(person);
-
-            person = new Person();
-            person.setFirstName("Mary");
-            person.setLastName("Doer");
-            person.setGender(Gender.FEMALE);
-            person.setAge(27);
-
+            person = Person.create("Jane", "Doer", Gender.FEMALE, 29);
             personService.add(person);
 
             System.out.println("added persons:");
@@ -46,13 +26,13 @@ public class Main {
 
             System.out.println("searching for Bruce Wayne");
             person = personService.searchByName("Bruce", "Wayne");
-            System.out.println("Found: "+person.toString());
+            System.out.println("found: "+person.toString());
 
             System.out.println("updating Bruce Wayne's age to 199");
             personService.updateAge("Bruce", "Wayne", 199);
             System.out.println("after update:");
             person = personService.searchByName("Bruce", "Wayne");
-            System.out.println("Found: "+person.toString());
+            System.out.println("found: "+person.toString());
 
         } catch (Exception e) {
             e.printStackTrace();

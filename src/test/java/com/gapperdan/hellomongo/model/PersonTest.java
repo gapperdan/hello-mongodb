@@ -10,27 +10,22 @@ public class PersonTest {
 
     @Test
     public void shouldCreateAMalePerson() {
-        someone = Person.create(Gender.MALE);
+        someone = Person.create(null, null, Gender.MALE, 0);
         assertEquals(Gender.MALE, someone.getGender());
     }
 
     @Test
     public void shouldCreateAFemalePerson() {
-        someone = Person.create(Gender.FEMALE);
+        someone = Person.create(null, null, Gender.FEMALE, 0);
         assertEquals(Gender.FEMALE, someone.getGender());
     }
 
     @Test
     public void shouldCreateAPersonWithTheCorrectAttributes() {
-        someone = Person.create(Gender.FEMALE);
-        someone.setFirstName("First");
-        someone.setLastName("Last");
-        someone.setAge(99);
-
+        someone = Person.create("First", "Last", Gender.FEMALE, 99);
         assertEquals(someone.getFirstName(), "First");
         assertEquals(someone.getLastName(), "Last");
         assertEquals(someone.getAge(), 99);
         assertEquals(someone.getGender(), Gender.FEMALE);
-
     }
 }
