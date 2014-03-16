@@ -116,7 +116,6 @@ public class MongoPersonDaoImpl implements PersonDao {
             e.printStackTrace();
             throw e;
         }
-
     }
 
     private Person convertDbObjectToPerson(DBObject dbObject) {
@@ -129,5 +128,4 @@ public class MongoPersonDaoImpl implements PersonDao {
 
         return person;
     }
-
 }
