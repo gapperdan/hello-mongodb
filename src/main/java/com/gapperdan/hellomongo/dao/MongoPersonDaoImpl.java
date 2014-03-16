@@ -118,6 +118,34 @@ public class MongoPersonDaoImpl implements PersonDao {
         }
     }
 
+    @Override
+    public void updateAge(String firstname, String lastname, int age) throws Exception {
+
+        BasicDBObject currentBasicDBObject = new BasicDBObject();
+        BasicDBObject newBasicDBObject = new BasicDBObject();
+
+        try {
+
+            Person person = searchByName(firstname, lastname);
+
+            currentBasicDBObject.append(FLD_FIRSTNAME, person.getFirstName().toUpperCase()).
+                    append(FLD_LASTNAME, person.getLastName().toUpperCase()).
+                    append(FLD_GENDER, person.getGender().toString()).
+                    append(FLD_AGE, person.getAge());
+
+            newBasicDBObject.append(FLD_FIRSTNAME, person.getFirstName().toUpperCase()).
+                    append(FLD_LASTNAME, person.getLastName().toUpperCase()).
+                    append(FLD_GENDER, person.getGender().toString()).
+                    append(FLD_AGE, age);
+
+            DBObject dbObject = dbCollection.findAndModify(basicDBObject, newBasicDBObject);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
     private Person convertDbObjectToPerson(DBObject dbObject) {
         Person person = new Person();
 

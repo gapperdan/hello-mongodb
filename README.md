@@ -8,3 +8,4 @@
    *  insert sample documents
    *  print the contents
    *  search for one person and display the result
+   *  update one person's age and display the updated person

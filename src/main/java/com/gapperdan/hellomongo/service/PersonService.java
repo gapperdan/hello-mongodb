@@ -1,9 +1,7 @@
 package com.gapperdan.hellomongo.service;
 
 import com.gapperdan.hellomongo.dao.MongoPersonDaoImpl;
-import com.gapperdan.hellomongo.model.Gender;
 import com.gapperdan.hellomongo.model.Person;
-import com.mongodb.DBObject;
 
 import java.util.List;
 
@@ -25,6 +23,10 @@ public class PersonService {
 
     public Person searchByName(String firstname, String lastname) throws Exception {
         return personDao.searchByName(firstname, lastname);
+    }
+
+    public void updateAge(String firstname, String lastname, int age) throws Exception {
+        personDao.updateAge(firstname, lastname, age);
     }
 
 }

@@ -48,11 +48,14 @@ public class Main {
             person = personService.searchByName("Bruce", "Wayne");
             System.out.println("Found: "+person.toString());
 
+            System.out.println("updating Bruce Wayne's age to 199");
+            personService.updateAge("Bruce", "Wayne", 199);
+            System.out.println("after update:");
+            person = personService.searchByName("Bruce", "Wayne");
+            System.out.println("Found: "+person.toString());
+
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
     }
-
 }
