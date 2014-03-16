@@ -59,12 +59,7 @@ public class PersonServiceTest {
     @Test
     public void shouldReturnThePersonSearchedByName() {
 
-        someone = new Person();
-        someone.setFirstName("First");
-        someone.setLastName("Last");
-        someone.setGender(Gender.FEMALE);
-        someone.setAge(99);
-
+        someone = Person.create("First", "Last", Gender.FEMALE, 99);
         mockService = mock(PersonService.class);
         try {
             when(mockService.searchByName("First", "Last")).thenReturn(someone);
@@ -74,6 +69,5 @@ public class PersonServiceTest {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 }
