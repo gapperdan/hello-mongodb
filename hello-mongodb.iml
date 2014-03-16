@@ -19,6 +19,7 @@
     <orderEntry type="library" exported="" name="Gradle: mockito-core-1.9.5" level="project" />
     <orderEntry type="library" exported="" name="Gradle: hamcrest-core-1.1" level="project" />
     <orderEntry type="library" exported="" name="Gradle: objenesis-1.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: owner-1.0.5" level="project" />
   </component>
 </module>
 

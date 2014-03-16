@@ -15,6 +15,7 @@ dependencies {
     compile 'org.mongodb:mongo-java-driver:2.12.0-rc2'
     compile 'org.projectlombok:lombok:1.12.6'
     compile 'org.mockito:mockito-core:1.9.5'
+    compile 'org.aeonbits.owner:owner:1.0.5'
 }
 
 test {

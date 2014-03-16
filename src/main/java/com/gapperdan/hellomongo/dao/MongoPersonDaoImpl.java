@@ -2,19 +2,16 @@ package com.gapperdan.hellomongo.dao;
 
 import com.gapperdan.hellomongo.model.Gender;
 import com.gapperdan.hellomongo.model.Person;
+import com.gapperdan.hellomongo.util.MongoConfig;
 import com.gapperdan.hellomongo.util.Util;
 import com.mongodb.*;
+import org.aeonbits.owner.ConfigFactory;
 
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MongoPersonDaoImpl implements PersonDao {
-
-    static final String MONGO_HOST = "localhost";
-    static final int MONGO_PORT = 27017;
-    static final String MONGO_DB = "test";
-    static final String MONGO_COLLECTION_PERSON = "person";
 
     static final String FLD_FIRSTNAME = "firstname";
     static final String FLD_LASTNAME = "lastname";
@@ -27,11 +24,22 @@ public class MongoPersonDaoImpl implements PersonDao {
     DBCollection dbCollection;
     BasicDBObject basicDBObject;
 
+    String mongoHost;
+    int mongoPort;
+    String mongoDb;
+    String mongoCollection;
+
     public MongoPersonDaoImpl() {
         try {
-            this.mongoClient = new MongoClient(MONGO_HOST, MONGO_PORT);
-            this.db = this.mongoClient.getDB(MONGO_DB);
-            this.dbCollection = this.db.getCollection(MONGO_COLLECTION_PERSON);
+            MongoConfig mongoConfig = ConfigFactory.create(MongoConfig.class);
+            this.mongoHost = mongoConfig.mongoHost();
+            this.mongoPort = mongoConfig.mongoPort();
+            this.mongoDb = mongoConfig.mongoDb();
+            this.mongoCollection = mongoConfig.mongoCollection();
+
+            this.mongoClient = new MongoClient(mongoHost, mongoPort);
+            this.db = this.mongoClient.getDB(mongoDb);
+            this.dbCollection = this.db.getCollection(mongoCollection);
         } catch (UnknownHostException e) {
             e.printStackTrace();
         }
@@ -79,7 +87,7 @@ public class MongoPersonDaoImpl implements PersonDao {
 
     @Override
     public void deleteAll() throws Exception {
-        dbCollection = db.getCollection(MONGO_COLLECTION_PERSON);
+        dbCollection = db.getCollection(mongoCollection);
 
         try {
             if (dbCollection.getCount() > 0) {
