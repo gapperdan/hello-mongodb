@@ -7,3 +7,4 @@
    *  empty the collection "person" if not empty
    *  insert sample documents
    *  print the contents
+   *  search for one person and display the result
