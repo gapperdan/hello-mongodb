@@ -1,0 +1,8 @@
+2014-03-17 14:53:12.383 INFO  - added persons
+2014-03-17 14:53:12.390 INFO  - [Person(firstName=Bruce, lastName=Wayne, age=30, gender=MALE), Person(firstName=John, lastName=Doe, age=49, gender=MALE), Person(firstName=Jane, lastName=Doer, age=29, gender=FEMALE)]
+2014-03-17 14:56:07.626 INFO  - added persons
+2014-03-17 14:56:07.632 INFO  - [Person(firstName=Bruce, lastName=Wayne, age=30, gender=MALE), Person(firstName=John, lastName=Doe, age=49, gender=MALE), Person(firstName=Jane, lastName=Doer, age=29, gender=FEMALE)]
+2014-03-17 14:56:07.634 INFO  - searching for Bruce Wayne
+2014-03-17 14:56:07.634 INFO  - found: Person(firstName=Bruce, lastName=Wayne, age=30, gender=MALE)
+2014-03-17 14:56:07.638 INFO  - after update
+2014-03-17 14:56:07.638 INFO  - found :Person(firstName=Bruce, lastName=Wayne, age=199, gender=MALE)
