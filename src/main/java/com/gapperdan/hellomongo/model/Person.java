@@ -1,5 +1,6 @@
 package com.gapperdan.hellomongo.model;
 
+import com.gapperdan.hellomongo.util.Util;
 import lombok.Data;
 
 public @Data class Person {
@@ -11,6 +12,19 @@ public @Data class Person {
         person.setLastName(lastName);
         person.setGender(gender);
         person.setAge(age);
+
+        //generate the user id
+        String firstPart = firstName.substring(0,2).toLowerCase();
+        String secondPart = lastName.substring(0,2).toLowerCase();
+        person.setUserId(firstPart
+                + secondPart
+                + Util.generateRandomNumberString(10)
+                + Util.generateRandomNumberString(10)
+                + Util.generateRandomNumberString(10)
+                + Util.generateRandomNumberString(10))
+                ;
+
+        System.out.println("*** userid= "+person.getUserId() + "*****");
         return person;
     }
 
@@ -18,5 +32,5 @@ public @Data class Person {
     private String lastName;
     private int age;
     private Gender gender;
-
+    private String userId;
 }

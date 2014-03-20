@@ -17,6 +17,7 @@ public class MongoPersonDaoImpl implements PersonDao {
     static final String FLD_LASTNAME = "lastname";
     static final String FLD_AGE = "age";
     static final String FLD_GENDER = "gender";
+    static final String FLD_USERID = "userid";
 
     MongoClient mongoClient;
     DBCursor dbCursor;
@@ -76,7 +77,8 @@ public class MongoPersonDaoImpl implements PersonDao {
             basicDBObject.append(FLD_FIRSTNAME,person.getFirstName().toUpperCase()).
                     append(FLD_LASTNAME, person.getLastName().toUpperCase()).
                     append(FLD_GENDER, person.getGender().toString()).
-                    append(FLD_AGE, person.getAge());
+                    append(FLD_AGE, person.getAge()).
+                    append(FLD_USERID, person.getUserId());
 
             dbCollection.insert(basicDBObject);
         } catch (Exception e) {

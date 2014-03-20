@@ -1,8 +1,18 @@
-2014-03-17 14:53:12.383 INFO  - added persons
-2014-03-17 14:53:12.390 INFO  - [Person(firstName=Bruce, lastName=Wayne, age=30, gender=MALE), Person(firstName=John, lastName=Doe, age=49, gender=MALE), Person(firstName=Jane, lastName=Doer, age=29, gender=FEMALE)]
-2014-03-17 14:56:07.626 INFO  - added persons
-2014-03-17 14:56:07.632 INFO  - [Person(firstName=Bruce, lastName=Wayne, age=30, gender=MALE), Person(firstName=John, lastName=Doe, age=49, gender=MALE), Person(firstName=Jane, lastName=Doer, age=29, gender=FEMALE)]
-2014-03-17 14:56:07.634 INFO  - searching for Bruce Wayne
-2014-03-17 14:56:07.634 INFO  - found: Person(firstName=Bruce, lastName=Wayne, age=30, gender=MALE)
-2014-03-17 14:56:07.638 INFO  - after update
-2014-03-17 14:56:07.638 INFO  - found :Person(firstName=Bruce, lastName=Wayne, age=199, gender=MALE)
+2014-03-19 23:52:01.439 INFO  - added persons
+2014-03-19 23:52:01.501 INFO  - [Person(firstName=Bruce, lastName=Wayne, age=30, gender=MALE, userId=null), Person(firstName=John, lastName=Doe, age=49, gender=MALE, userId=null), Person(firstName=Jane, lastName=Doer, age=29, gender=FEMALE, userId=null)]
+2014-03-19 23:52:01.506 INFO  - searching for Bruce Wayne
+2014-03-19 23:52:01.506 INFO  - found: Person(firstName=Bruce, lastName=Wayne, age=30, gender=MALE, userId=null)
+2014-03-19 23:52:01.512 INFO  - after update
+2014-03-19 23:52:01.512 INFO  - found :Person(firstName=Bruce, lastName=Wayne, age=199, gender=MALE, userId=null)
+2014-03-19 23:54:41.930 INFO  - added persons
+2014-03-19 23:54:41.936 INFO  - [Person(firstName=Bruce, lastName=Wayne, age=30, gender=MALE, userId=null), Person(firstName=John, lastName=Doe, age=49, gender=MALE, userId=null), Person(firstName=Jane, lastName=Doer, age=29, gender=FEMALE, userId=null)]
+2014-03-19 23:54:41.939 INFO  - searching for Bruce Wayne
+2014-03-19 23:54:41.939 INFO  - found: Person(firstName=Bruce, lastName=Wayne, age=30, gender=MALE, userId=null)
+2014-03-19 23:54:41.943 INFO  - after update
+2014-03-19 23:54:41.943 INFO  - found :Person(firstName=Bruce, lastName=Wayne, age=199, gender=MALE, userId=null)
+2014-03-19 23:57:36.870 INFO  - added persons
+2014-03-19 23:57:36.876 INFO  - [Person(firstName=Bruce, lastName=Wayne, age=30, gender=MALE, userId=null), Person(firstName=John, lastName=Doe, age=49, gender=MALE, userId=null), Person(firstName=Jane, lastName=Doer, age=29, gender=FEMALE, userId=null)]
+2014-03-19 23:57:36.879 INFO  - searching for Bruce Wayne
+2014-03-19 23:57:36.879 INFO  - found: Person(firstName=Bruce, lastName=Wayne, age=30, gender=MALE, userId=null)
+2014-03-19 23:57:36.882 INFO  - after update
+2014-03-19 23:57:36.883 INFO  - found :Person(firstName=Bruce, lastName=Wayne, age=199, gender=MALE, userId=null)
