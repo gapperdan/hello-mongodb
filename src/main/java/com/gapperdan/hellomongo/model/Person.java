@@ -16,15 +16,14 @@ public @Data class Person {
         //generate the user id
         String firstPart = firstName.substring(0,2).toLowerCase();
         String secondPart = lastName.substring(0,2).toLowerCase();
+
         person.setUserId(firstPart
                 + secondPart
                 + Util.generateRandomNumberString(10)
                 + Util.generateRandomNumberString(10)
                 + Util.generateRandomNumberString(10)
-                + Util.generateRandomNumberString(10))
-                ;
+                + Util.generateRandomNumberString(10));
 
-        System.out.println("*** userid= "+person.getUserId() + "*****");
         return person;
     }
 

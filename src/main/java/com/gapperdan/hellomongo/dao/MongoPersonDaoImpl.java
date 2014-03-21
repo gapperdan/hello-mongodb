@@ -133,12 +133,14 @@ public class MongoPersonDaoImpl implements PersonDao {
             currentBasicDBObject.append(FLD_FIRSTNAME, person.getFirstName().toUpperCase()).
                     append(FLD_LASTNAME, person.getLastName().toUpperCase()).
                     append(FLD_GENDER, person.getGender().toString()).
-                    append(FLD_AGE, person.getAge());
+                    append(FLD_AGE, person.getAge()).
+                    append(FLD_USERID, person.getUserId());
 
             newBasicDBObject.append(FLD_FIRSTNAME, person.getFirstName().toUpperCase()).
                     append(FLD_LASTNAME, person.getLastName().toUpperCase()).
                     append(FLD_GENDER, person.getGender().toString()).
-                    append(FLD_AGE, age);
+                    append(FLD_AGE, age).
+                    append(FLD_USERID, person.getUserId());
 
             DBObject dbObject = dbCollection.findAndModify(basicDBObject, newBasicDBObject);
 
@@ -155,6 +157,7 @@ public class MongoPersonDaoImpl implements PersonDao {
         person.setLastName(Util.upperFirstCharOnly(dbObject.get(FLD_LASTNAME).toString()));
         person.setGender(Gender.valueOf(dbObject.get(FLD_GENDER).toString()));
         person.setAge(Integer.valueOf(dbObject.get(FLD_AGE).toString()));
+        person.setUserId(dbObject.get(FLD_USERID).toString());
 
         return person;
     }

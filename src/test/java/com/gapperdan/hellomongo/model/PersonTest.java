@@ -33,4 +33,5 @@ public class PersonTest {
         assertEquals(userIdStringFirstFourChars, someone.getFirstName().substring(0,2).toLowerCase()
                 + someone.getLastName().substring(0,2).toLowerCase());
     }
+
 }
